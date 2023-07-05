@@ -1,4 +1,4 @@
-module github.com/y7amura/tutorial.go/01_echo-server-and-client
+module github.com/secamp-y3/tutorial.go/01_echo-server-and-client
 
 go 1.20
 
