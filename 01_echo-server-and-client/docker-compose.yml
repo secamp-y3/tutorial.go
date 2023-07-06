@@ -6,9 +6,8 @@ services:
     tty: true
     volumes:
       - .:/go/src/app
-      - ./tmp:/go/src/app/tmp
-    working_dir: /go/src/app/cmd/server/
-    command: air --tmp_dir "../../../tmp" --build.bin "../../../tmp/main" --build.cmd "go build -o ../../../tmp/main ." --build.args_bin "--port 8080"
+    working_dir: /go/src/app/
+    command: air --tmp_dir "./tmp" --build.bin "./tmp/main" --build.cmd "go build -o ./tmp/main cmd/server/main.go" --build.args_bin "--host 172.26.249.11 --port 8080"
     networks:
       cluster:
         ipv4_address: 172.26.249.11

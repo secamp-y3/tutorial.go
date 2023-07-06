@@ -9,6 +9,7 @@ import (
 )
 
 const (
+	DEFAULT_HOST    = "localhost"
 	DEFAULT_PORT    = 8080
 	BUFFER_CAPACITY = 1024
 )
@@ -26,11 +27,13 @@ func handle(conn net.Conn) {
 }
 
 func main() {
+	// --host HOST: hostname
+	host := pflag.StringP("host", "h", DEFAULT_HOST, "Hostname")
 	// --port PORT: port number
 	port := pflag.IntP("port", "p", DEFAULT_PORT, "Port number to listen")
 	pflag.Parse()
 
-	addr, err := net.ResolveTCPAddr("tcp", fmt.Sprintf(":%d", *port))
+	addr, err := net.ResolveTCPAddr("tcp", fmt.Sprintf("%s:%d", *host, *port))
 	if err != nil {
 		log.Fatal(err)
 	}
