@@ -7,7 +7,7 @@ services:
     volumes:
       - .:/go/src/app
     working_dir: /go/src/app/
-    command: air --tmp_dir "./tmp" --build.bin "./tmp/main" --build.cmd "go build -o ./tmp/main cmd/server/main.go" --build.args_bin "--host 172.26.249.11 --port 8080"
+    command: air --tmp_dir "../../tmp" --build.bin "../../tmp/server" --build.cmd "go build -o ../../tmp/server ./cmd/server/main.go" --build.exclude_file "./cmd/client/main.go" --build.args_bin "--host 172.26.249.11 --port 8080"
     networks:
       cluster:
         ipv4_address: 172.26.249.11

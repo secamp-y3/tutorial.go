@@ -9,13 +9,13 @@
     ```sh
     go run cmd/server/main.go --port 8080
     ```
-2. クラインとの起動
+2. クライアントの起動
     ```sh
     go run cmd/client/main.go --server localhost:8080
     ```
 
 ### Dockerを使用する場合
-0. 初回のみ，コンテナをビルドする．
+0. 初回のみコンテナをビルドする．
     ```sh
     docker-compose build
     ```
@@ -27,3 +27,12 @@
     ```sh
     docker-compose exec client go run main.go
     ```
+
+#### 補足
+- Dockerを使用する場合，サーバはバックグラウンドで動作しているため明示的に起動する必要はない．
+- クライアントは環境変数からサーバアドレスを読み込むため，`--server`オプションによる指定は必要ない．
+- Docker内部では，以下のIPアドレスを割り当てている．
+    | App    | IP            |
+    |--------|---------------|
+    | server | 172.26.249.11 |
+    | client | 172.26.249.21 |

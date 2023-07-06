@@ -14,6 +14,7 @@ const (
 	BUFFER_CAPACITY = 1024
 )
 
+// provides an echo-server
 func handle(conn net.Conn) {
 	defer conn.Close()
 

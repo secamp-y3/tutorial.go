@@ -22,6 +22,7 @@ func getEnvOr(key, def string) string {
 	return def
 }
 
+// readInput returns the string given via STDIN
 func readInput() string {
 	fmt.Print("> ")
 	stdin := bufio.NewScanner(os.Stdin)
@@ -29,6 +30,7 @@ func readInput() string {
 	return stdin.Text()
 }
 
+// send transmits a messege and receives a reply via the given connection
 func send(conn net.Conn, msg string, reply *string) error {
 	defer conn.Close()
 
